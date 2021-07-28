@@ -61,21 +61,26 @@
 // }
 
 
+
+// Prototypal pattern
+
+let questionMethods= {
+            isAnswerCorrect:  function(index){
+            return index === this.correctAnswerIndex;
+
+            },
+
+            getCorrectAnswer: function (){
+                return this.options[this.correctAnswerIndex];
+            },
+}
+
 function question( title , options , correctAnswerIndex){
 
-        let obj1 = {};
+        let obj1 = Object.create(questionMethods);
         obj1.title = title;
         obj1.options= options;
-        obj1.correctAnswerIndex= correctAnswerIndex,
-        obj1.isAnswerCorrect= function(index){
-                return index === obj1.correctAnswerIndex;
-            
-            };
-        obj1.getCorrectAnswer= function(){
-                return obj1.options[obj1.correctAnswerIndex];
-            }
-        
-
+        obj1.correctAnswerIndex= correctAnswerIndex;
         return obj1;
 
 }
@@ -85,3 +90,73 @@ let question1 = question('Where is the capital of Jordan',
   1);
 let question2 = question()
 
+
+// Pseudoclassical Pattern
+
+
+let questionMethods= {
+    isAnswerCorrect:  function(index){
+    return index === this.correctAnswerIndex;
+
+    },
+
+    getCorrectAnswer: function (){
+        return this.options[this.correctAnswerIndex];
+    },
+}
+
+function Question( title , options , correctAnswerIndex){
+
+// let obj1 = Object.create(question.prototype);
+this.title = title;
+this.options= options;
+this.correctAnswerIndex= correctAnswerIndex;
+// return obj1;
+
+}
+
+Question.prototype = {
+    isAnswerCorrect:  function(index){
+        return index === this.correctAnswerIndex;
+    
+        },
+    
+        getCorrectAnswer: function (){
+            return this.options[this.correctAnswerIndex];
+        },
+}
+
+let question1 = new Question('Where is the capital of Jordan',
+  ['Tashkent', 'Amaan', 'Kuwait City', 'Nairobi'],
+  1);
+let question2 = new Question()
+
+
+
+
+//Create using class
+
+
+class Question{
+
+    constructor(title , options , correctAnswerIndex){
+         // let obj1 = Object.create(question.prototype);
+    this.title = title;
+    this.options= options;
+    this.correctAnswerIndex= correctAnswerIndex;
+    // return obj1;
+    }
+
+    
+    isAnswerCorrect(index){
+        return index === this.correctAnswerIndex;    
+        }
+    
+        getCorrectAnswer(){
+            return this.options[this.correctAnswerIndex];
+        }
+      
+    
+    }
+    
+   
