@@ -45,13 +45,13 @@ function createObj(name, id, noOfProjects){
     return question.name;
 
   };
-  question.incrementProject = function( n =1){
-    question.noOfProjects = question.noOfProjects + n;
+  question.incrementProject = function(){
+    question.noOfProjects = question.noOfProjects + 1;
 
     return question.noOfProjects;
   };
-    question.decrementProject = function( n = 1){
-    question.noOfProjects = question.noOfProjects - n;
+    question.decrementProject = function(){
+    question.noOfProjects = question.noOfProjects - 1;
 
     return question.noOfProjects;
   }
@@ -69,19 +69,19 @@ let result1 = createObj("vikram",123,3);
 
 let methods = {
   getProjects: function(){
-    return question.noOfProjects;
+    return this.noOfProjects;
   },
   changeName:function(newName){
-    return question.name;
+    return this.name;
 
   },
-  incrementProject:function( n =1){
-    this.noOfProjects = this.noOfProjects + n;
+  incrementProject:function(){
+    this.noOfProjects = this.noOfProjects + 1;
 
     return this.noOfProjects;
   },
-  decrementProject: function( n = 1){
-    this.noOfProjects = this.noOfProjects - n;
+  decrementProject: function(){
+    this.noOfProjects = this.noOfProjects - 1;
 
     return this.noOfProjects;
   }
@@ -105,43 +105,89 @@ function createObj(name, id, noOfProjects){
 //[ ] Using Pseudoclassical Way
 
 
-function createObj(name, id, noOfProjects){
+function CreateObj(name, id, noOfProjects){
 
-  let question = Object.create(createObj.prototype);
+  // let question = Object.create(createObj.prototype);
 
-  question.name = name;
-  question.id = id;
-  question.noOfProjects =  noOfProjects;
+  this.name = name;
+  this.id = id;
+  this.noOfProjects =  noOfProjects;
   
 
-  return question;
+  // return question;
 
 
 }
 
-createObj.prototype = {
+
+CreateObj.prototype = {
    getProjects: function(){
-    return question.noOfProjects;
+    return this.noOfProjects;
   },
   changeName:function(newName){
-    return question.name;
+    let prevNmame = this.name;
+    
+    this.name = newName;
+
+    return prevName;
 
   },
-  incrementProject:function( n =1){
-    this.noOfProjects = this.noOfProjects + n;
+  incrementProject:function(){
+    this.noOfProjects = this.noOfProjects + 1;
 
     return this.noOfProjects;
   },
-  decrementProject: function( n = 1){
-    this.noOfProjects = this.noOfProjects - n;
+  decrementProject: function(){
+    this.noOfProjects = this.noOfProjects - 1;
 
     return this.noOfProjects;
   }
 }
   
+let result1 = new CreateObj("vikram",123,3);
 
 
+// Using Class
 
+class CreateObj{
+
+  constructor(name, id, noOfProjects){
+      this.name = name;
+      this.id = id;
+      this.noOfProjects =  noOfProjects;
+  }
+
+    getProjects(){
+    return this.noOfProjects;
+  }
+  changeName(newName){
+    let prevNmame = this.name;
+    
+    this.name = newName;
+
+    return prevName;
+
+  }
+  incrementProject(){
+    this.noOfProjects = this.noOfProjects + 1;
+
+    return this.noOfProjects;
+  }
+  decrementProject(){
+    this.noOfProjects = this.noOfProjects - 1;
+
+    return this.noOfProjects;
+  }
+  // let question = Object.create(createObj.prototype);
+
+  
+
+  // return question;
+
+
+}
+
+let result1 = new CreateObj("vikram",123,3);
 
 
 
