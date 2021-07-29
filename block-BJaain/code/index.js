@@ -1,15 +1,16 @@
-console.log(this.document === document); // Output
+console.log(this.document === document); // true
+
 
 // ------------
 
-console.log(this === window); //Output
+console.log(this === window); //true
 
 // ------------
 
 var myFunction = function () {
   console.log(this);
 };
-myFunction(); // Output
+myFunction(); // window
 
 // ------------
 
@@ -17,7 +18,7 @@ function f1() {
   'use strict';
   return this;
 }
-console.log(f1() === window); //Output
+console.log(f1() === window); //False
 
 // ------------
 
@@ -26,11 +27,12 @@ function foo() {
   console.log(this === window);
 }
 
-foo(); //Output ??
+foo(); //undefined
 
 // ------------
 
 // This for IIFE
+
 (function () {
   console.log('Anonymous function invocation');
   console.log(this === window);
@@ -42,7 +44,7 @@ var myObject = {};
 myObject.someMethod = function () {
   console.log(this);
 };
-myObject.someMethod(); //Value Of This
+myObject.someMethod(); //Value Of This // myObject
 
 // ------------
 
