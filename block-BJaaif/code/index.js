@@ -5,7 +5,11 @@
 /*** CHALLENGE 1 of 1 ***/
 
 function makePerson(name, age) {
-  // add code here
+  let obj = {};
+  obj.name = name;
+  obj.age = age;
+
+  return obj;
 }
 
 var vicky = makePerson('Vicky', 24);
@@ -21,7 +25,12 @@ var vicky = makePerson('Vicky', 24);
 /*** CHALLENGE 1 of 3 ***/
 
 var personStore = {
-  // add code here
+  greet: function(){
+    console.log("hello")
+  }
+  
+
+
 };
 
 // /********* Uncomment this line to test your work! *********/
@@ -30,7 +39,14 @@ var personStore = {
 /*** CHALLENGE 2 of 3 ***/
 
 function personFromPersonStore(name, age) {
-  // add code here
+   let obj = Object.create({});
+   obj.name = name ;
+   obj.age = age;
+   obj.greet = function(){
+     console.log("hello");
+   }
+
+   return obj;
 }
 
 var sandra = personFromPersonStore('Sandra', 26);
@@ -44,6 +60,20 @@ var sandra = personFromPersonStore('Sandra', 26);
 
 // add code here
 
+
+function personFromPersonStore(name, age) {
+  let obj = Object.create({});
+  obj.name = name ;
+  obj.age = age;
+  obj.introduce = function(){
+    console.log(`Hi, may name is ${obj.name}`);
+  }
+
+  return obj;
+}
+
+var sandra = personFromPersonStore('Sandra', 26);
+
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
 /****************************************************************
@@ -52,8 +82,11 @@ var sandra = personFromPersonStore('Sandra', 26);
 
 /*** CHALLENGE 1 of 3 ***/
 
+
 function PersonConstructor() {
-  // add code here
+  this.greet = function(){
+    console.log("hello");
+  }
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -62,19 +95,37 @@ var simon = new PersonConstructor();
 
 /*** CHALLENGE 2 of 3 ***/
 
-function personFromConstructor(name, age) {
-  // add code here
+function PersonFromConstructor(name, age) {
+  this.name = name;
+  this.age = age;
+  this.greet= function(){
+    console.log("hello")
+  }
+
 }
 
-var mike = personFromConstructor('Mike', 30);
+
+var mike = new PersonFromConstructor('Mike', 30);
 
 // /********* Uncomment these lines to test your work! *********/
-// console.log(mike.name); // -> Logs 'Mike'
-// console.log(mike.age); //-> Logs 30
-// mike.greet(); //-> Logs 'hello'
+console.log(mike.name); // -> Logs 'Mike'
+console.log(mike.age); //-> Logs 30
+mike.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
 // add code here
+
+function PersonFromConstructor(name, age) {
+  this.name = name;
+  this.age = age;
+  this.greet= function(){
+    console.log("hello")
+  }
+  this.introduce = function(){
+    console.log(`Hi, my name is ${this.name}`)
+  }
+
+}
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
@@ -85,10 +136,14 @@ var mike = personFromConstructor('Mike', 30);
 /*** CHALLENGE 1 of 3 ***/
 
 class PersonClass {
-  constructor() {
-    // add code here
+  constructor(name) {
+    this.name = name;
+    
   }
-
+  greet(){
+    console.log("hello")
+  }
+ 
   // add code here
 }
 
@@ -100,10 +155,27 @@ var george = new PersonClass();
 
 // add code here
 
+class DeveloperClass {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    
+  }
+  greet(){
+    console.log("hello")
+  }
+ 
+  introduce(){
+    console.log(`Hello World, my name is ${this.name}`)
+  }
+  // add code here
+}
+
+
 // /********* Uncomment these lines to test your work! *********/
-// var thai = new DeveloperClass('Thai', 32);
-// console.log(thai.name); // -> Logs 'Thai'
-// thai.introduce(); //-> Logs 'Hello World, my name is Thai'
+var thai = new DeveloperClass('Thai', 32);
+console.log(thai.name); // -> Logs 'Thai'
+thai.introduce(); //-> Logs 'Hello World, my name is Thai'
 
 /****************************************************************
                       EXTENSION: SUBCLASSING
