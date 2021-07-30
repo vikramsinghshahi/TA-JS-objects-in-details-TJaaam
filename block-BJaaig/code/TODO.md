@@ -45,10 +45,10 @@ console.log(userSayHello.apply(user3)); // output / "Hello Bran"
 console.log(userSayHello.call(user3)); // output / "Hello Bran"
 console.log(typeof new MainUser()); // output / Object
 console.log(typeof new MainUser()); // output /object
-console.log(new MainUser().sayHello()); // output / error
-console.log(new MainUser().sayHello.call(user2)); // output / error
-console.log(new MainUser().sayHello.call(user)); // output / error
+console.log(new MainUser().sayHello()); // output / Hello Tyrion
+console.log(new MainUser().sayHello.call(user2)); // output / Hello Arya
+console.log(new MainUser().sayHello.call(user)); // output / Hello John
 console.log(
   new MainUser().sayHello.apply(user, ['Welcome!'])
-); // output / error
+); // output / Welcome John
 ```
