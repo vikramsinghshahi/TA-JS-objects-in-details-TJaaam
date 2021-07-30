@@ -25,26 +25,21 @@ var vicky = makePerson('Vicky', 24);
 /*** CHALLENGE 1 of 3 ***/
 
 var personStore = {
-  greet: function(){
+  greet(){
     console.log("hello")
   }
-  
-
 
 };
 
 // /********* Uncomment this line to test your work! *********/
-// personStore.greet(); // -> Logs 'hello'
+personStore.greet(); // -> Logs 'hello'
 
 /*** CHALLENGE 2 of 3 ***/
 
 function personFromPersonStore(name, age) {
-   let obj = Object.create({});
+   let obj = Object.create(personStore);
    obj.name = name ;
    obj.age = age;
-   obj.greet = function(){
-     console.log("hello");
-   }
 
    return obj;
 }
@@ -61,18 +56,9 @@ var sandra = personFromPersonStore('Sandra', 26);
 // add code here
 
 
-function personFromPersonStore(name, age) {
-  let obj = Object.create({});
-  obj.name = name ;
-  obj.age = age;
-  obj.introduce = function(){
-    console.log(`Hi, may name is ${obj.name}`);
-  }
-
-  return obj;
+personStore.introduce = function(){
+  console.log(`Hi, my name is ${this.name}`)
 }
-
-var sandra = personFromPersonStore('Sandra', 26);
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
@@ -155,15 +141,15 @@ var george = new PersonClass();
 
 // add code here
 
-class DeveloperClass {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
+class DeveloperClass extends PersonClass {
+  constructor(name ){
+    super( name)
+
     
   }
-  greet(){
-    console.log("hello")
-  }
+  // greet(){
+  //   console.log("hello")
+  // }
  
   introduce(){
     console.log(`Hello World, my name is ${this.name}`)
@@ -195,10 +181,21 @@ function userFactory(name, score) {
   return user;
 }
 
-var adminFunctionStore /* Put code here */;
+var adminFunctionStore = Object.create(userFunctionStore);
+
 
 function adminFactory(name, score) {
+  let obj = userFactory(name , score);
+
+  Object.setPrototypeOf(obj, adminFunctionStore);
+  obj.type = "Admin"
+  return obj
+
   // Put code here
+}
+
+adminFunctionStore.sharePublicMessage = function(){
+  console.log("welcome user!")
 }
 
 /* Put code here for a method called sharePublicMessage*/
