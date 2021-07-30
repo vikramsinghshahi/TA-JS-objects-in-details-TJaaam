@@ -306,3 +306,4 @@ const call = {
 let newCall = call.anotherCaller;
 
 newCall(); //`Hey, undefined just called.`
+
