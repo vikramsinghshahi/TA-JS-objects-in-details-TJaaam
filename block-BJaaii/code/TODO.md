@@ -14,6 +14,21 @@ Data:
 
 - `stack`
 
+```js
+
+class Stack{
+    constructor(){
+
+    }
+
+    push( value ){
+        this.value = value;
+        return this.value;
+    }
+    
+}
+```
+
 Methods:
 
 - `push`: will accept a value and add to the stack. Stack adds data at the end
