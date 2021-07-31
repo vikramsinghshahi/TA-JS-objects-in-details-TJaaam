@@ -34,6 +34,10 @@ let even = numbers.myFilter(function (num) {
   return num % 2 === 0;
 });
 
+let even = numbers.myFilter(function (num) {
+  return num % 2 === 0;
+});
+
 let filteredWords = words
   .myFilter(function (word) {
     return word.length > 3;
