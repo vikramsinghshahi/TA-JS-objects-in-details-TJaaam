@@ -15,50 +15,54 @@ class Person{
 
     }
     eat(){
-        
+        console.log(`${this.name} can eat`);
     }
     sleep(){
-
+       console.log(`${this.name} can sleep`);
     }
     walk(){
-
+      console.log(`${this.name} can walk`);
     }
 
 }
 
 class Player extends Person{
-    constructor(){
+    constructor(name, age, gender,sportsName){
+        super(name, age, gender)
         this.sportsName = sportsName;
     }
     play(){
-
+      console.log(`${this.name} can eat`);
     }
 }
 
 class Teacher extends Person{
-    constructor(){
+    constructor( name, age, gender, instituteName){
+        super(name, age, gender)
         this.instituteName = instituteName;
     }
     teach(){
-
+      console.log(`${this.name} can tech`);
     }
 }
 
 class Artist extends Person{
-    constructor(){
+    constructor(name, age, gender,kind){
+        super(name, age, gender)
         this.kind = kind;
     }
     createArt(){
-
+      console.log(`${this.name} can art`)
     }
 }
 
 class Cricketer extends Player{
-    constructor(){
+    constructor(name, age, gender,sportsName, teamName;){
+        super(name, age, gender,sportsName)
         this.teamName = teamName;
     }
     playCricket(){
-
+        console.log(`${this.name} can play cricket`)
     }
 
 
