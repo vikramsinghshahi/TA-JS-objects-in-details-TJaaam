@@ -5,25 +5,22 @@
 
 ```js
 
-class BookList{
-    constructor(){
 
-    }
-}
 
 class Book{
-    constructor(title,category, author, isRead, finishedDate){
+    constructor(title,category, author){
       this.title = title;
       this.category = category;
       this.author = author;
       this.isRead = false;
-      this.finishedDate = finishedDate;
+      this.finishedDate = null;
     }
 
     markBookAsRead(){
 
-        this.finishedDate++
+        
         this.isRead = true;
+        this.finishedDate = Date.now();
         
         return this.isRead;
     }
@@ -47,6 +44,65 @@ Book class will have the following methods:
 1. An array of all the Books
 2. Current read book index
 
+```js
+
+class Book{
+    constructor(title,category, author){
+      this.title = title;
+      this.category = category;
+      this.author = author;
+      this.isRead = false;
+      this.finishedDate = null;
+    }
+
+    markBookAsRead(){
+
+        
+        this.isRead = true;
+        this.finishedDate = Date.now();
+        
+        return this.isRead;
+    }
+}
+
+class BookList{
+    constructor(){
+       this.books= [];
+       this.currentBookIndex = 0;
+    }
+
+    add(books = []){
+        this.books = this.books.concat(books);
+        return this.books;
+
+    }
+    getCurrentBook(){
+        return this.books[this.currentBookIndex];
+    }
+    getNextBook(){
+        this.currentBookIndex = this.currentBookIndex + 1;
+        return this.books[this.currentBookIndex];
+    }
+
+    getPrevBook(){
+        this.currentBookIndex = this.currentBookIndex - 1;
+        return this.books[this.currentBookIndex];
+    }
+
+    changeCurrentBook(index){
+        this.currentBookIndex = index;
+        return this.currentBookIndex;
+
+    }
+}
+
+let book1 = new Book("Harry Potter", "fiction", "JK rowling");
+let book2 = new Book("Harry Pooter 2", "Non- fiction", "JK");
+let book3 = new Book("Harry Pooter 3", "Nonfiction", "JK");
+let book4 = new Book("Harry Pooter 4", "Non-fiction", "JK");
+let book5 = new Book("Harry Pooter 5", "Nonfiction", "JK");
+
+```
 #### BookList Methods
 
 - [] `add([Book])` will accept an array (list of books). Once the method is called the book will added to the list.
