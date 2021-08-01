@@ -3,6 +3,33 @@
 - [ ] Create a class BookList
 - [ ] Create another class called Book
 
+```js
+
+class BookList{
+    constructor(){
+
+    }
+}
+
+class Book{
+    constructor(title,category, author, isRead, finishedDate){
+      this.title = title;
+      this.category = category;
+      this.author = author;
+      this.isRead = false;
+      this.finishedDate = finishedDate;
+    }
+
+    markBookAsRead(){
+
+        this.finishedDate++
+        this.isRead = true;
+        
+        return this.isRead;
+    }
+}
+```
+
 #### Each Book should have several properties:
 
 1. Title
