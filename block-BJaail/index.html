@@ -8,13 +8,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="container">
         <h1>My <strong>Book</strong> List</h1>
     </header>
     <main>
-        <ul>
-            <li></li>
-        </ul>
+        <div class="container">
+            <form class="form">
+                <label for="title" class="title">Title</label>
+                <input id="title" name= "book-title" class="title" type="text" >
+                
+                <label for="author" class="author">Author</label>
+                <input id  ="author" name= "book-author" class="title" type="text" >
+                
+                <label for="number" class="number">ISBN#</label>
+                <input id  = "number" name= "book-number" class="title" type="text" >
+                
+                <button class="submit">Add Book</button>
+            </form>
+        </div>
+        <div class="books container">
+            <ul class="flex book-list-heading">
+                <li>Title</li>
+                <li>Author</li>
+                <li>ISBN#</li>
+                <li></li>
+            </ul>
+            <ul class="book_list ">
+                <li class="flex">
+                    <h2>silver lining</h2>
+                    <h3>author</h3>
+                    <p>number</p>
+                    <span> X <span>
+                </li>
+                <!-- <li> sam </li>
+                <li>291889</li> -->
+
+            </ul>
+        </div>
     </main>
     <script src="index.js"></script>
 </body>
