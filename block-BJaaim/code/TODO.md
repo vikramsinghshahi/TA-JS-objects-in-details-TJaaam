@@ -43,3 +43,28 @@ METHOD:
   This will create the ui of the whole app.
 - updateScore
   This method will update the score.
+
+```js
+
+class QuizApp{
+   constructor( allQuestion=[], activeIndex){
+      this.allQuestions = allQuestions;
+      this.activeIndex = activeIndex;
+      this.score = score;
+
+   }
+
+   nextQuestion(){
+
+   }
+
+   createUI(){
+
+   }
+   updateScore(){
+     
+   }
+
+}
+
+```
