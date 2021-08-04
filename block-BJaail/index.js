@@ -47,6 +47,12 @@ class BookList{
         this.createUI();
     }
 
+    removeBook(number){
+            this.books = this.books.filter(book => book.number !== number)
+            this.createUI()
+    }
+
+
     createUI(){
         bookListRoot.innerHTML = "";
 
@@ -63,7 +69,8 @@ class BookList{
             span.innerHTML = "X";
 
             span.addEventListener("click" , ()=>{
-                book.toggleClick();
+                // book.toggleClick();
+                this.removeBook(book.number)
                 this.createUI();
             })
 
