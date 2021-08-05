@@ -89,10 +89,21 @@ fieldset{
     font-size: 20px;
 }  */
 
+.options{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom:  5px;
+    flex-direction: column;
+    padding: 10px 0;
+}
 .submit{
     margin-top: 20px;
 }
 
 footer{
     background-color: burlywood;
+}
+
+.show_result{
+    visibility: hidden;
 }
